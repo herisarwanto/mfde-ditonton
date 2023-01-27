@@ -31,8 +31,8 @@ class TvSeriesDetail extends Equatable {
   final int id;
   final String name;
   final String? backdropPath;
-  final List<int> episodeRunTime;
-  final String firstAirDate;
+  final List<int>? episodeRunTime;
+  final String? firstAirDate;
   final List<Genre> genres;
   final String homepage;
   final bool inProduction;
@@ -44,7 +44,7 @@ class TvSeriesDetail extends Equatable {
   final String originalLanguage;
   final String originalName;
   final String overview;
-  final int popularity;
+  final double popularity;
   final String? posterPath;
   final String status;
   final String tagline;

@@ -3,9 +3,9 @@ import 'package:ditonton/domain/entities/tv_series/tv_series.dart';
 import 'package:ditonton/domain/usecases/tv_series/get_watchlist_tv_series.dart';
 import 'package:flutter/foundation.dart';
 
-class WatchlistMovieNotifier extends ChangeNotifier {
+class WatchlistTvSeriesNotifier extends ChangeNotifier {
   var _watchlistTvSeries = <TvSeries>[];
-  List<TvSeries> get watchlistMovies => _watchlistTvSeries;
+  List<TvSeries> get watchlistTvSeries => _watchlistTvSeries;
 
   var _watchlistState = RequestState.Empty;
   RequestState get watchlistState => _watchlistState;
@@ -13,7 +13,7 @@ class WatchlistMovieNotifier extends ChangeNotifier {
   String _message = '';
   String get message => _message;
 
-  WatchlistMovieNotifier({required this.getWatchlistTvSeries});
+  WatchlistTvSeriesNotifier({required this.getWatchlistTvSeries});
 
   final GetWatchlistTvSeries getWatchlistTvSeries;
 

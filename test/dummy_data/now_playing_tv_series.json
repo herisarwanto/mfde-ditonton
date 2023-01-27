@@ -1,0 +1,28 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "poster_path": "/zra8NrzxaEeunRWJmUm3HZOL4sd.jpg",
+      "popularity": 1.0,
+      "id": 1,
+      "backdrop_path": "/b0BckgEovxYLBbIk5xXyWYQpmlT.jpg",
+      "vote_average": 1,
+      "overview": "overview",
+      "first_air_date": "2023-01-23",
+      "origin_country": [
+        "GB"
+      ],
+      "genre_ids": [
+        1,
+        2,
+        3
+      ],
+      "original_language": "en",
+      "vote_count": 1,
+      "name": "name",
+      "original_name": "originalName"
+    }
+  ],
+  "total_results": 43,
+  "total_pages": 3
+}

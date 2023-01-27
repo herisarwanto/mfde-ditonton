@@ -1,5 +1,5 @@
 import 'package:ditonton/data/models/genre_model.dart';
-import 'package:ditonton/domain/entities/tv_series_detail.dart';
+import 'package:ditonton/domain/entities/tv_series/tv_series_detail.dart';
 import 'package:equatable/equatable.dart';
 
 class TvSeriesDetailModel extends Equatable {
@@ -32,8 +32,8 @@ class TvSeriesDetailModel extends Equatable {
   final int id;
   final String name;
   final String? backdropPath;
-  final List<int> episodeRunTime;
-  final String firstAirDate;
+  final List<int>? episodeRunTime;
+  final String? firstAirDate;
   final List<GenreModel> genres;
   final String homepage;
   final bool inProduction;
@@ -45,7 +45,7 @@ class TvSeriesDetailModel extends Equatable {
   final String originalLanguage;
   final String originalName;
   final String overview;
-  final int popularity;
+  final double popularity;
   final String? posterPath;
   final String status;
   final String tagline;
@@ -55,29 +55,30 @@ class TvSeriesDetailModel extends Equatable {
 
   factory TvSeriesDetailModel.fromJson(Map<String, dynamic> json) {
     return TvSeriesDetailModel(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      backdropPath: json['backdropPath'] as String,
-      episodeRunTime: json['episodeRunTime'] as List<int>,
-      firstAirDate: json['firstAirDate'] as String,
-      genres: json['genres'] as List<GenreModel>,
-      homepage: json['homepage'] as String,
-      inProduction: json['inProduction'] as bool,
-      languages: json['languages'] as List<String>,
-      lastAirDate: json['lastAirDate'] as String,
-      numberOfEpisodes: json['numberOfEpisodes'] as int,
-      numberOfSeasons: json['numberOfSeasons'] as int,
-      originCountry: json['originCountry'] as List<String>,
-      originalLanguage: json['originalLanguage'] as String,
-      originalName: json['originalName'] as String,
-      overview: json['overview'] as String,
-      popularity: json['popularity'] as int,
-      posterPath: json['posterPath'] as String,
-      status: json['status'] as String,
-      tagline: json['tagline'] as String,
-      type: json['type'] as String,
-      voteAverage: json['voteAverage'] as double,
-      voteCount: json['voteCount'] as int,
+      id: json['id'],
+      name: json['name'],
+      backdropPath: json['backdrop_path'],
+      episodeRunTime: json['episode_runtime'],
+      firstAirDate: json['first_air_date'],
+      genres: List<GenreModel>.from(
+          json["genres"].map((x) => GenreModel.fromJson(x))),
+      homepage: json['homepage'],
+      inProduction: json['in_production'],
+      languages: List<String>.from(json['languages'].map((x) => x)),
+      lastAirDate: json['last_air_date'],
+      numberOfEpisodes: json['number_of_episodes'],
+      numberOfSeasons: json['number_of_seasons'],
+      originCountry: List<String>.from(json['origin_country'].map((x) => x)),
+      originalLanguage: json['original_language'],
+      originalName: json['original_name'],
+      overview: json['overview'],
+      popularity: json['popularity'].toDouble(),
+      posterPath: json['poster_path'],
+      status: json['status'],
+      tagline: json['tagline'],
+      type: json['type'],
+      voteAverage: json['vote_average'].toDouble(),
+      voteCount: json['vote_count'],
     );
   }
 
@@ -85,27 +86,27 @@ class TvSeriesDetailModel extends Equatable {
     return {
       'id': this.id,
       'name': this.name,
-      'backdropPath': this.backdropPath,
-      'episodeRunTime': this.episodeRunTime,
-      'firstAirDate': this.firstAirDate,
+      'backdrop_path': this.backdropPath,
+      'episode_runtime': this.episodeRunTime,
+      'first_air_date': this.firstAirDate,
       'genres': this.genres,
       'homepage': this.homepage,
-      'inProduction': this.inProduction,
+      'in_production': this.inProduction,
       'languages': this.languages,
-      'lastAirDate': this.lastAirDate,
-      'numberOfEpisodes': this.numberOfEpisodes,
-      'numberOfSeasons': this.numberOfSeasons,
-      'originCountry': this.originCountry,
-      'originalLanguage': this.originalLanguage,
-      'originalName': this.originalName,
+      'last_air_date': this.lastAirDate,
+      'number_of_episodes': this.numberOfEpisodes,
+      'number_of_seasons': this.numberOfSeasons,
+      'origin_country': this.originCountry,
+      'original_language': this.originalLanguage,
+      'original_name': this.originalName,
       'overview': this.overview,
       'popularity': this.popularity,
-      'posterPath': this.posterPath,
+      'poster_path': this.posterPath,
       'status': this.status,
       'tagline': this.tagline,
       'type': this.type,
-      'voteAverage': this.voteAverage,
-      'voteCount': this.voteCount,
+      'vote_average': this.voteAverage,
+      'vote_count': this.voteCount,
     };
   }
 
