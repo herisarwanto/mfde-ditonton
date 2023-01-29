@@ -1,0 +1,29 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/hxSEqdFRUKjn61vqNn958d08mk6.jpg",
+      "first_air_date": "2016-12-16",
+      "genre_ids": [
+        10759,
+        16,
+        10751,
+        10765
+      ],
+      "id": 68837,
+      "name": "Justice League Action",
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Justice League Action",
+      "overview": "Batman, Superman and Wonder Woman lead the DC Super Heroes against their most infamous foes.",
+      "popularity": 25.92,
+      "poster_path": "/7BitEKENa2uiP48uOZHjY21Zi7L.jpg",
+      "vote_average": 7.2,
+      "vote_count": 63
+    }
+  ],
+  "total_pages": 6,
+  "total_results": 113
+}

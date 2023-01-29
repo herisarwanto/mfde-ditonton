@@ -70,8 +70,8 @@ final testTvSeries = TvSeries(
     voteAverage: 1,
     overview: 'overview',
     firstAirDate: 'firstAirDate',
-    originCountry: ['a','b','c'],
-    genreIds: [1,2,3],
+    originCountry: ['a', 'b', 'c'],
+    genreIds: [1, 2, 3],
     originalLanguage: 'originalLanguage',
     voteCount: 1,
     originalName: 'originalName');
@@ -108,3 +108,10 @@ final testTvSeriesTable = TvSeriesTable(
 
 final testWatchlistTvSeries = TvSeries.watchlist(
     id: 1, name: 'name', overview: 'overview', posterPath: 'posterPath');
+
+final testTvSeriesMap = {
+  'id': 1,
+  'name': 'name',
+  'posterPath': 'posterPath',
+  'overview': 'overview',
+};
