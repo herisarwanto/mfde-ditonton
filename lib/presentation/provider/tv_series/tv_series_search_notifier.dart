@@ -37,6 +37,4 @@ class TvSeriesSearchNotifier extends ChangeNotifier {
       },
     );
   }
-
-
 }
