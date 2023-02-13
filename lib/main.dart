@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/domain/usecases/movie/get_movie_detail.dart';
@@ -20,7 +23,6 @@ import 'package:ditonton/domain/usecases/tv_series/get_watchlist_tv_series.dart'
 import 'package:ditonton/domain/usecases/tv_series/remove_watchlist_tv_series.dart';
 import 'package:ditonton/domain/usecases/tv_series/save_watchlist_tv_series.dart';
 import 'package:ditonton/domain/usecases/tv_series/search_tv_series.dart';
-import 'package:ditonton/firebase_options.dart';
 import 'package:ditonton/presentation/bloc/movie/movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_series/tv_series_bloc.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
@@ -39,7 +41,6 @@ import 'package:ditonton/presentation/pages/tv_series/watchlist_tv_series_page.d
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ditonton/injection.dart' as di;
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,16 +48,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  FlutterError.onError = (errorDetails) {
-    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-  };
-  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
+  FlutterError.onError = (details) {
+    log(details.exceptionAsString(), stackTrace: details.stack);
+    FirebaseCrashlytics.instance
+        .recordError(details.exceptionAsString(), details.stack);
   };
   di.init();
   runApp(MyApp());
+  await runZonedGuarded(
+        () async => runApp(MyApp()),
+        (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+  );
 }
 
 class MyApp extends StatelessWidget {
