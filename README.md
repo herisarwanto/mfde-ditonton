@@ -1,8 +1,10 @@
-# a199-flutter-expert-project
+# mfde-ditonton
 
-Repository ini merupakan starter project submission kelas Flutter Expert Dicoding Indonesia.
+Repository ini merupakan project submission kelas Flutter Expert Dicoding Indonesia.
 
 ---
+
+[![Codemagic build status](https://api.codemagic.io/apps/63ddd9701377edc4ea3f37ea/sample-workflow/status_badge.svg)](https://codemagic.io/apps/63ddd9701377edc4ea3f37ea/sample-workflow/1)
 
 ## Tips Submission Awal
 
@@ -50,4 +52,3 @@ Jika kamu menerapkan modular pada project, Anda dapat memanfaatkan berkas `test.
     Proses ini akan men-*generate* berkas `lcov.info` dan folder `coverage` terkait dengan laporan coverage.
 4. Tunggu proses testing selesai hingga muncul web terkait laporan coverage.
 
-[![Codemagic build status](https://api.codemagic.io/apps/63ddd9701377edc4ea3f37ea/sample-workflow/status_badge.svg)](https://codemagic.io/apps/63ddd9701377edc4ea3f37ea/sample-workflow/1)
