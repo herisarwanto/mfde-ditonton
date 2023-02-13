@@ -3,37 +3,24 @@ workflows:
     name: Codemagic MDFE Ditonton
     max_build_duration: 120
     instance_type: mac_mini_m1
-  android-workflow:
-    name: Android Workflow
-    max_build_duration: 120
-    environment:
-      android_signing:
-        - keystore_reference
-      groups:
-        - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS)
-        vars:
-          PACKAGE_NAME: "com.dicoding.ditonton" # <-- Put your package name here
-          GOOGLE_PLAY_TRACK: "alpha"
-        flutter: stable
     scripts:
-      - name: Set up local.properties
+      - name: Launch emulator
         script: |
-          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-      - name: Get Flutter packages
-        script: |
-          flutter packages pub get
-      - name: Build AAB with Flutter
-        script: |
-          flutter build appbundle --release
-      artifacts:
-        - build/**/outputs/**/*.aab
-        - build/**/outputs/**/mapping.txt
-        - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - user_1@example.com
-          - user_2@example.com
-        notify:
-          success: true
-          failure: false
+          set -e # exit on first failed command
+
+          cd $ANDROID_HOME/tools
+          emulator -avd emulator &
+          adb wait-for-device
+      - name: Build Android App Bundle
+        working_directory: android
+        script: ./gradlew bundleRelease
+    artifacts:
+      - build/**/outputs/bundle/**/*.aab
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: refactor/migration_movie_to_bloc
+        - pattern: develop
+          include: false
+      cancel_previous_builds: true
