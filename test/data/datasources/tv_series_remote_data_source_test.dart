@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ditonton/common/ssl_pinning.dart';
 import 'package:ditonton/data/datasources/tv_series/tv_series_remote_data_source.dart';
 import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/data/models/tv_series/tv_series_detail_model.dart';
@@ -16,10 +17,10 @@ void main() {
   const BASE_URL = 'https://api.themoviedb.org/3';
 
   late TvSeriesRemoteDataSourceImpl dataSource;
-  late MockHttpClient mockHttpClient;
+  late ApiIOClient mockHttpClient;
 
   setUp(() {
-    mockHttpClient = MockHttpClient();
+    mockHttpClient = MockApiIOClient();
     dataSource = TvSeriesRemoteDataSourceImpl(client: mockHttpClient);
   });
 
