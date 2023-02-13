@@ -39,6 +39,9 @@ dependencies:
   path_provider: ^2.0.2
   flutter_bloc: ^7.3.3
   freezed_annotation: ^1.1.0
+  firebase_core: ^1.11.0
+  firebase_crashlytics: ^2.4.5
+  firebase_analytics: ^9.3.8
 
 dev_dependencies:
   bloc_test: ^8.5.0
