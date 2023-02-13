@@ -1,24 +1,28 @@
 import 'dart:convert';
 
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/ssl_pinning.dart';
 import 'package:ditonton/data/models/movie/movie_detail_model.dart';
 import 'package:ditonton/data/models/movie/movie_model.dart';
 import 'package:ditonton/data/models/movie/movie_response.dart';
 import 'package:ditonton/common/exception.dart';
-import 'package:http/http.dart' as http;
 
 abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getNowPlayingMovies();
+
   Future<List<MovieModel>> getPopularMovies();
+
   Future<List<MovieModel>> getTopRatedMovies();
+
   Future<MovieDetailResponse> getMovieDetail(int id);
+
   Future<List<MovieModel>> getMovieRecommendations(int id);
+
   Future<List<MovieModel>> searchMovies(String query);
 }
 
 class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
-
-  final http.Client client;
+  final ApiIOClient client;
 
   MovieRemoteDataSourceImpl({required this.client});
 

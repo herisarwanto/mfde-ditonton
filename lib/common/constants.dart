@@ -17,6 +17,7 @@ const FAILED_CONNECT_TO_INTERNET = 'Failed to connect to the network';
 
 const WATCHLIST_SUCCESS_ADDED_MESSAGE = 'Added to Watchlist';
 const WATCHLIST_SUCCESS_REMOVED_MESSAGE = 'Removed from Watchlist';
+const ERROR_MESSAGE = 'Something wrong';
 
 // colors
 const Color kRichBlack = Color(0xFF000814);

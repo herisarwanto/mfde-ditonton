@@ -1,3 +1,4 @@
+import 'package:ditonton/common/ssl_pinning.dart';
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/datasources/movie/movie_local_data_source.dart';
 import 'package:ditonton/data/datasources/tv_series/tv_series_local_data_source.dart';
@@ -164,4 +165,5 @@ void init() {
 
   // external
   locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton<ApiIOClient>(() => ApiIOClient());
 }

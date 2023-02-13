@@ -1,3 +1,4 @@
+import 'package:ditonton/common/ssl_pinning.dart';
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/datasources/movie/movie_local_data_source.dart';
 import 'package:ditonton/data/datasources/movie/movie_remote_data_source.dart';
@@ -17,6 +18,7 @@ import 'package:http/http.dart' as http;
   TvSeriesRemoteDataSource,
   TvSeriesLocalDataSource,
 ], customMocks: [
-  MockSpec<http.Client>(as: #MockHttpClient)
+  MockSpec<http.Client>(as: #MockHttpClient),
+  MockSpec<ApiIOClient>(as: #MockApiIOClient),
 ])
 void main() {}
