@@ -18,8 +18,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../dummy_data/dummy_objects.dart';
-import 'movie_bloc_test.mocks.dart';
+import '../../../dummy_data/dummy_objects.dart';
+import '../movie/movie_bloc_test.mocks.dart';
 
 @GenerateMocks([
   GetNowPlayingMovies,
