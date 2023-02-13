@@ -10,7 +10,18 @@ import 'package:ditonton/domain/usecases/movie/get_watchlist_status.dart';
 import 'package:ditonton/domain/usecases/movie/remove_watchlist.dart';
 import 'package:ditonton/domain/usecases/movie/save_watchlist.dart';
 import 'package:ditonton/domain/usecases/movie/search_movies.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_now_playing_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_popular_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_top_rated_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_tv_series_detail.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_tv_series_recommendations.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_watchlist_status_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/get_watchlist_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/remove_watchlist_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/save_watchlist_tv_series.dart';
+import 'package:ditonton/domain/usecases/tv_series/search_tv_series.dart';
 import 'package:ditonton/presentation/bloc/movie/movie_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series/tv_series_bloc.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movies/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/movies/home_movie_page.dart';
@@ -48,6 +59,19 @@ class MyApp extends StatelessWidget {
     di.locator<GetWatchlistMovies>(),
   );
 
+  TvSeriesBloc tvSeriesBloc = TvSeriesBloc(
+    di.locator<GetNowPlayingTvSeries>(),
+    di.locator<GetPopularTvSeries>(),
+    di.locator<GetTopRatedTvSeries>(),
+    di.locator<GetTvSeriesDetail>(),
+    di.locator<GetTvSeriesRecommendations>(),
+    di.locator<GetWatchlistStatusTvSeries>(),
+    di.locator<SaveWatchlistTvSeries>(),
+    di.locator<RemoveWatchlistTvSeries>(),
+    di.locator<SearchTvSeries>(),
+    di.locator<GetWatchlistTvSeries>(),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -57,6 +81,12 @@ class MyApp extends StatelessWidget {
             ..add(MovieEvent.movieNowPlayingFetch())
             ..add(MovieEvent.moviePopularFetch())
             ..add(MovieEvent.movieTopRatedFetch()),
+        ),
+        BlocProvider(
+          create: (context) => tvSeriesBloc
+            ..add(TvSeriesEvent.tvSeriesNowPlayingFetch())
+            ..add(TvSeriesEvent.tvSeriesPopularFetch())
+            ..add(TvSeriesEvent.tvSeriesTopRatedFetch()),
         ),
       ],
       child: MaterialApp(

@@ -1,9 +1,9 @@
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/common/utils.dart';
-import 'package:ditonton/presentation/provider/tv_series/watchlist_tv_series_notifier.dart';
+import 'package:ditonton/presentation/bloc/tv_series/tv_series_bloc.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WatchlistTvSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/watchlist-tv-series';
@@ -14,12 +14,13 @@ class WatchlistTvSeriesPage extends StatefulWidget {
 
 class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
     with RouteAware {
+  late TvSeriesBloc _tvSeriesBloc;
+
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<WatchlistTvSeriesNotifier>(context, listen: false)
-            .fetchWatchlistTvSeries());
+    _tvSeriesBloc = BlocProvider.of(context);
+    _tvSeriesBloc.add(TvSeriesEvent.tvSeriesWatchlistFetch());
   }
 
   @override
@@ -29,8 +30,7 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
   }
 
   void didPopNext() {
-    Provider.of<WatchlistTvSeriesNotifier>(context, listen: false)
-        .fetchWatchlistTvSeries();
+    _tvSeriesBloc.add(TvSeriesEvent.tvSeriesWatchlistFetch());
   }
 
   @override
@@ -41,26 +41,29 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<WatchlistTvSeriesNotifier>(
-          builder: (context, data, child) {
-            if (data.watchlistState == RequestState.Loading) {
+        child: BlocBuilder<TvSeriesBloc, TvSeriesState>(
+          builder: (context, state) {
+            final status = state.tvSeriesSearchStatus;
+            if (status == RequestState.Loading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.watchlistState == RequestState.Loaded) {
-              return data.watchlistTvSeries.length > 0
+            } else if (status == RequestState.Loaded) {
+              return state.tvSeriesList.length > 0
                   ? ListView.builder(
                       itemBuilder: (context, index) {
-                        final tvSeries = data.watchlistTvSeries[index];
-                        return TvSeriesCard(tvSeries);
+                        final tv = state.tvSeriesList[index];
+                        return TvSeriesCard(tv);
                       },
-                      itemCount: data.watchlistTvSeries.length,
+                      itemCount: state.tvSeriesList.length,
                     )
-                  : Center(child: Text('No Data'));
+                  : Center(
+                      child: Text('No Data'),
+                    );
             } else {
               return Center(
                 key: Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
             }
           },

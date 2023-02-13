@@ -27,7 +27,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   void initState() {
     super.initState();
     _movieBloc = BlocProvider.of(context);
-
     _movieBloc
       ..add(MovieEvent.movieDetailFetch(id: widget.id))
       ..add(MovieEvent.movieWatchlistStatusLoad(id: widget.id));

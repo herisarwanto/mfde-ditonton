@@ -1,7 +1,9 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/bloc/movie/movie_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series/tv_series_bloc.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
+import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,12 +21,17 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   late MovieBloc _movieBloc;
+  late TvSeriesBloc _tvSeriesBloc;
 
   @override
   void initState() {
     super.initState();
     _movieBloc = BlocProvider.of(context);
-    _movieBloc.add(MovieEvent.movieSearchFetch(query: ''));
+    _tvSeriesBloc = BlocProvider.of(context);
+
+    widget.isMovie
+        ? _movieBloc.add(MovieEvent.movieSearchFetch(query: ''))
+        : _tvSeriesBloc.add(TvSeriesEvent.tvSeriesSearchFetch(query: ''));
   }
 
   @override
@@ -42,7 +49,8 @@ class _SearchPageState extends State<SearchPage> {
               onSubmitted: (query) {
                 widget.isMovie
                     ? _movieBloc.add(MovieEvent.movieSearchFetch(query: query))
-                    : _movieBloc.add(MovieEvent.movieSearchFetch(query: query));
+                    : _tvSeriesBloc
+                        .add(TvSeriesEvent.tvSeriesSearchFetch(query: query));
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
@@ -81,20 +89,21 @@ class _SearchPageState extends State<SearchPage> {
                       );
                     }
                   })
-                : BlocBuilder<MovieBloc, MovieState>(builder: (context, state) {
-                    final status = state.movieSearchStatus;
+                : BlocBuilder<TvSeriesBloc, TvSeriesState>(
+                    builder: (context, state) {
+                    final status = state.tvSeriesSearchStatus;
                     if (status == RequestState.Loading) {
                       return Center(
                         child: CircularProgressIndicator(),
                       );
                     } else if (status == RequestState.Loaded) {
-                      final result = state.movieList;
+                      final result = state.tvSeriesList;
                       return Expanded(
                         child: ListView.builder(
                           padding: const EdgeInsets.all(8),
                           itemBuilder: (context, index) {
-                            final movie = state.movieList[index];
-                            return MovieCard(movie);
+                            final tv = state.tvSeriesList[index];
+                            return TvSeriesCard(tv);
                           },
                           itemCount: result.length,
                         ),
@@ -104,7 +113,7 @@ class _SearchPageState extends State<SearchPage> {
                         child: Container(),
                       );
                     }
-                  }),
+                  })
           ],
         ),
       ),

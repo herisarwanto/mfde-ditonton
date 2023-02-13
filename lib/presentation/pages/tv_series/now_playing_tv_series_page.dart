@@ -1,8 +1,8 @@
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/provider/tv_series/tv_series_list_notifier.dart';
+import 'package:ditonton/presentation/bloc/tv_series/tv_series_bloc.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NowPlayingTvSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/now-playing-tv-series';
@@ -12,13 +12,13 @@ class NowPlayingTvSeriesPage extends StatefulWidget {
 }
 
 class _NowPlayingTvSeriesPageState extends State<NowPlayingTvSeriesPage> {
+  late TvSeriesBloc _tvSeriesBloc;
 
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<TvSeriesListNotifier>(context, listen: false)
-            .fetchNowPlayingTvSeries());
+    _tvSeriesBloc = BlocProvider.of(context);
+    _tvSeriesBloc.add(TvSeriesEvent.tvSeriesNowPlayingFetch());
   }
 
   @override
@@ -29,24 +29,25 @@ class _NowPlayingTvSeriesPageState extends State<NowPlayingTvSeriesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<TvSeriesListNotifier>(
-          builder: (context, data, child) {
-            if (data.nowPlayingState == RequestState.Loading) {
+        child: BlocBuilder<TvSeriesBloc, TvSeriesState>(
+          builder: (context, state) {
+            final status = state.tvSeriesStatus;
+            if (status == RequestState.Loading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.nowPlayingState == RequestState.Loaded) {
+            } else if (status == RequestState.Loaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tvSeries = data.nowPlayingTvSeries[index];
-                  return TvSeriesCard(tvSeries);
+                  final tv = state.tvSeriesNowPlayingList[index];
+                  return TvSeriesCard(tv);
                 },
-                itemCount: data.nowPlayingTvSeries.length,
+                itemCount: state.tvSeriesNowPlayingList.length,
               );
             } else {
               return Center(
                 key: Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
             }
           },
