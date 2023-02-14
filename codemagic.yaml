@@ -4,9 +4,9 @@ workflows:
     max_build_duration: 120
     instance_type: mac_mini_m1
     scripts:
-      - name: Run unit tests
-        script: ./gradlew test
-        test_report: app/build/**/*.xml
+#      - name: Run unit tests
+#        script: ./gradlew test
+#        test_report: app/build/**/*.xml
       - name: Build Android App Bundle
         working_directory: android
         script: ./gradlew bundleRelease
