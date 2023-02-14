@@ -74,6 +74,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   }
 }
 
+// ignore: must_be_immutable
 class DetailContent extends StatelessWidget {
   late MovieBloc movieBloc;
   final MovieDetail movie;
