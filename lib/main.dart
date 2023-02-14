@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:ditonton/common/analytics_service.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/domain/usecases/movie/get_movie_detail.dart';
@@ -56,8 +57,8 @@ Future<void> main() async {
   di.init();
   runApp(MyApp());
   await runZonedGuarded(
-        () async => runApp(MyApp()),
-        (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
+    () async => runApp(MyApp()),
+    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }
 
@@ -114,7 +115,10 @@ class MyApp extends StatelessWidget {
           textTheme: kTextTheme,
         ),
         home: HomeMoviePage(),
-        navigatorObservers: [routeObserver],
+        navigatorObservers: [
+          routeObserver,
+          di.locator<AnalyticsService>().getAnalyticsObserver()
+        ],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
             case '/home':

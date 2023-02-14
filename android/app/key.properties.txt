@@ -1,0 +1,4 @@
+storePassword=@Angkatan14
+keyPassword=@Angkatan14
+keyAlias=codemagic
+storeFile=/Users/herisarwanto/AndroidStudioProjects/FlutterApps/Dicoding/a199-flutter-expert-project/codemagic.keystore
