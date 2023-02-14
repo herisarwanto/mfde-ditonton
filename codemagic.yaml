@@ -3,6 +3,10 @@ workflows:
     name: Codemagic MDFE Ditonton
     max_build_duration: 120
     instance_type: mac_mini_m1
+    scripts:
+      - name: Build Android release   # for building in release mode
+        script: |
+          flutter build apk --release
     artifacts:
       - build/**/outputs/bundle/**/*.aab
     triggering:
