@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'tv_series_bloc.dart';
@@ -11,67 +12,7 @@ part of 'tv_series_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TvSeriesEventTearOff {
-  const _$TvSeriesEventTearOff();
-
-  TvSeriesStarted tvSeriesStarted() {
-    return const TvSeriesStarted();
-  }
-
-  TvSeriesNowPlayingFetch tvSeriesNowPlayingFetch() {
-    return const TvSeriesNowPlayingFetch();
-  }
-
-  TvSeriesPopularFetch tvSeriesPopularFetch() {
-    return const TvSeriesPopularFetch();
-  }
-
-  TvSeriesTopRatedFetch tvSeriesTopRatedFetch() {
-    return const TvSeriesTopRatedFetch();
-  }
-
-  TvSeriesDetailFetch tvSeriesDetailFetch({required int id}) {
-    return TvSeriesDetailFetch(
-      id: id,
-    );
-  }
-
-  TvSeriesAddWatclistPressed tvSeriesAddWatclistPressed(
-      {required TvSeriesDetail tvSeriesDetail}) {
-    return TvSeriesAddWatclistPressed(
-      tvSeriesDetail: tvSeriesDetail,
-    );
-  }
-
-  TvSeriesRemoveFromWatchlistPressed tvSeriesRemoveFromWatchlistPressed(
-      {required TvSeriesDetail tvSeriesDetail}) {
-    return TvSeriesRemoveFromWatchlistPressed(
-      tvSeriesDetail: tvSeriesDetail,
-    );
-  }
-
-  TvSeriesWatchlistStatusLoad tvSeriesWatchlistStatusLoad({required int id}) {
-    return TvSeriesWatchlistStatusLoad(
-      id: id,
-    );
-  }
-
-  TvSeriesSearchFetch tvSeriesSearchFetch({required String query}) {
-    return TvSeriesSearchFetch(
-      query: query,
-    );
-  }
-
-  TvSeriesWatchlistFetch tvSeriesWatchlistFetch() {
-    return const TvSeriesWatchlistFetch();
-  }
-}
-
-/// @nodoc
-const $TvSeriesEvent = _$TvSeriesEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$TvSeriesEvent {
@@ -1062,9 +1003,10 @@ class _$TvSeriesDetailFetch implements TvSeriesDetailFetch {
 }
 
 abstract class TvSeriesDetailFetch implements TvSeriesEvent {
-  const factory TvSeriesDetailFetch({required int id}) = _$TvSeriesDetailFetch;
+  const factory TvSeriesDetailFetch({required final int id}) =
+      _$TvSeriesDetailFetch;
 
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TvSeriesDetailFetchCopyWith<TvSeriesDetailFetch> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1265,9 +1207,10 @@ class _$TvSeriesAddWatclistPressed implements TvSeriesAddWatclistPressed {
 
 abstract class TvSeriesAddWatclistPressed implements TvSeriesEvent {
   const factory TvSeriesAddWatclistPressed(
-      {required TvSeriesDetail tvSeriesDetail}) = _$TvSeriesAddWatclistPressed;
+          {required final TvSeriesDetail tvSeriesDetail}) =
+      _$TvSeriesAddWatclistPressed;
 
-  TvSeriesDetail get tvSeriesDetail;
+  TvSeriesDetail get tvSeriesDetail => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TvSeriesAddWatclistPressedCopyWith<TvSeriesAddWatclistPressed>
       get copyWith => throw _privateConstructorUsedError;
@@ -1471,10 +1414,10 @@ class _$TvSeriesRemoveFromWatchlistPressed
 
 abstract class TvSeriesRemoveFromWatchlistPressed implements TvSeriesEvent {
   const factory TvSeriesRemoveFromWatchlistPressed(
-          {required TvSeriesDetail tvSeriesDetail}) =
+          {required final TvSeriesDetail tvSeriesDetail}) =
       _$TvSeriesRemoveFromWatchlistPressed;
 
-  TvSeriesDetail get tvSeriesDetail;
+  TvSeriesDetail get tvSeriesDetail => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TvSeriesRemoveFromWatchlistPressedCopyWith<
           TvSeriesRemoveFromWatchlistPressed>
@@ -1674,10 +1617,10 @@ class _$TvSeriesWatchlistStatusLoad implements TvSeriesWatchlistStatusLoad {
 }
 
 abstract class TvSeriesWatchlistStatusLoad implements TvSeriesEvent {
-  const factory TvSeriesWatchlistStatusLoad({required int id}) =
+  const factory TvSeriesWatchlistStatusLoad({required final int id}) =
       _$TvSeriesWatchlistStatusLoad;
 
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TvSeriesWatchlistStatusLoadCopyWith<TvSeriesWatchlistStatusLoad>
       get copyWith => throw _privateConstructorUsedError;
@@ -1873,10 +1816,10 @@ class _$TvSeriesSearchFetch implements TvSeriesSearchFetch {
 }
 
 abstract class TvSeriesSearchFetch implements TvSeriesEvent {
-  const factory TvSeriesSearchFetch({required String query}) =
+  const factory TvSeriesSearchFetch({required final String query}) =
       _$TvSeriesSearchFetch;
 
-  String get query;
+  String get query => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TvSeriesSearchFetchCopyWith<TvSeriesSearchFetch> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2050,41 +1993,6 @@ class _$TvSeriesWatchlistFetch implements TvSeriesWatchlistFetch {
 abstract class TvSeriesWatchlistFetch implements TvSeriesEvent {
   const factory TvSeriesWatchlistFetch() = _$TvSeriesWatchlistFetch;
 }
-
-/// @nodoc
-class _$TvSeriesStateTearOff {
-  const _$TvSeriesStateTearOff();
-
-  _TvSeriesState call(
-      {List<TvSeries> tvSeriesNowPlayingList = const [],
-      List<TvSeries> tvSeriesPopularList = const [],
-      List<TvSeries> tvSeriesTopRatedList = const [],
-      List<TvSeries> tvSeriesList = const [],
-      TvSeriesDetail? tvSeriesDetail,
-      List<TvSeries> tvSeriesRecommendationList = const [],
-      RequestState tvSeriesStatus = RequestState.Empty,
-      RequestState tvSeriesDetailStatus = RequestState.Empty,
-      RequestState tvSeriesSearchStatus = RequestState.Empty,
-      String message = '',
-      bool isAddedToWatchlist = false}) {
-    return _TvSeriesState(
-      tvSeriesNowPlayingList: tvSeriesNowPlayingList,
-      tvSeriesPopularList: tvSeriesPopularList,
-      tvSeriesTopRatedList: tvSeriesTopRatedList,
-      tvSeriesList: tvSeriesList,
-      tvSeriesDetail: tvSeriesDetail,
-      tvSeriesRecommendationList: tvSeriesRecommendationList,
-      tvSeriesStatus: tvSeriesStatus,
-      tvSeriesDetailStatus: tvSeriesDetailStatus,
-      tvSeriesSearchStatus: tvSeriesSearchStatus,
-      message: message,
-      isAddedToWatchlist: isAddedToWatchlist,
-    );
-  }
-}
-
-/// @nodoc
-const $TvSeriesState = _$TvSeriesStateTearOff();
 
 /// @nodoc
 mixin _$TvSeriesState {
@@ -2297,49 +2205,79 @@ class __$TvSeriesStateCopyWithImpl<$Res>
 
 class _$_TvSeriesState implements _TvSeriesState {
   const _$_TvSeriesState(
-      {this.tvSeriesNowPlayingList = const [],
-      this.tvSeriesPopularList = const [],
-      this.tvSeriesTopRatedList = const [],
-      this.tvSeriesList = const [],
+      {final List<TvSeries> tvSeriesNowPlayingList = const [],
+      final List<TvSeries> tvSeriesPopularList = const [],
+      final List<TvSeries> tvSeriesTopRatedList = const [],
+      final List<TvSeries> tvSeriesList = const [],
       this.tvSeriesDetail,
-      this.tvSeriesRecommendationList = const [],
+      final List<TvSeries> tvSeriesRecommendationList = const [],
       this.tvSeriesStatus = RequestState.Empty,
       this.tvSeriesDetailStatus = RequestState.Empty,
       this.tvSeriesSearchStatus = RequestState.Empty,
       this.message = '',
-      this.isAddedToWatchlist = false});
+      this.isAddedToWatchlist = false})
+      : _tvSeriesNowPlayingList = tvSeriesNowPlayingList,
+        _tvSeriesPopularList = tvSeriesPopularList,
+        _tvSeriesTopRatedList = tvSeriesTopRatedList,
+        _tvSeriesList = tvSeriesList,
+        _tvSeriesRecommendationList = tvSeriesRecommendationList;
 
-  @JsonKey()
+  final List<TvSeries> _tvSeriesNowPlayingList;
   @override
-  final List<TvSeries> tvSeriesNowPlayingList;
   @JsonKey()
+  List<TvSeries> get tvSeriesNowPlayingList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tvSeriesNowPlayingList);
+  }
+
+  final List<TvSeries> _tvSeriesPopularList;
   @override
-  final List<TvSeries> tvSeriesPopularList;
   @JsonKey()
+  List<TvSeries> get tvSeriesPopularList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tvSeriesPopularList);
+  }
+
+  final List<TvSeries> _tvSeriesTopRatedList;
   @override
-  final List<TvSeries> tvSeriesTopRatedList;
   @JsonKey()
+  List<TvSeries> get tvSeriesTopRatedList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tvSeriesTopRatedList);
+  }
+
+  final List<TvSeries> _tvSeriesList;
   @override
-  final List<TvSeries> tvSeriesList;
+  @JsonKey()
+  List<TvSeries> get tvSeriesList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tvSeriesList);
+  }
+
   @override
   final TvSeriesDetail? tvSeriesDetail;
-  @JsonKey()
+  final List<TvSeries> _tvSeriesRecommendationList;
   @override
-  final List<TvSeries> tvSeriesRecommendationList;
   @JsonKey()
+  List<TvSeries> get tvSeriesRecommendationList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tvSeriesRecommendationList);
+  }
+
   @override
+  @JsonKey()
   final RequestState tvSeriesStatus;
-  @JsonKey()
   @override
+  @JsonKey()
   final RequestState tvSeriesDetailStatus;
-  @JsonKey()
   @override
+  @JsonKey()
   final RequestState tvSeriesSearchStatus;
-  @JsonKey()
   @override
+  @JsonKey()
   final String message;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool isAddedToWatchlist;
 
   @override
@@ -2398,40 +2336,42 @@ class _$_TvSeriesState implements _TvSeriesState {
 
 abstract class _TvSeriesState implements TvSeriesState {
   const factory _TvSeriesState(
-      {List<TvSeries> tvSeriesNowPlayingList,
-      List<TvSeries> tvSeriesPopularList,
-      List<TvSeries> tvSeriesTopRatedList,
-      List<TvSeries> tvSeriesList,
-      TvSeriesDetail? tvSeriesDetail,
-      List<TvSeries> tvSeriesRecommendationList,
-      RequestState tvSeriesStatus,
-      RequestState tvSeriesDetailStatus,
-      RequestState tvSeriesSearchStatus,
-      String message,
-      bool isAddedToWatchlist}) = _$_TvSeriesState;
+      {final List<TvSeries> tvSeriesNowPlayingList,
+      final List<TvSeries> tvSeriesPopularList,
+      final List<TvSeries> tvSeriesTopRatedList,
+      final List<TvSeries> tvSeriesList,
+      final TvSeriesDetail? tvSeriesDetail,
+      final List<TvSeries> tvSeriesRecommendationList,
+      final RequestState tvSeriesStatus,
+      final RequestState tvSeriesDetailStatus,
+      final RequestState tvSeriesSearchStatus,
+      final String message,
+      final bool isAddedToWatchlist}) = _$_TvSeriesState;
 
   @override
-  List<TvSeries> get tvSeriesNowPlayingList;
+  List<TvSeries> get tvSeriesNowPlayingList =>
+      throw _privateConstructorUsedError;
   @override
-  List<TvSeries> get tvSeriesPopularList;
+  List<TvSeries> get tvSeriesPopularList => throw _privateConstructorUsedError;
   @override
-  List<TvSeries> get tvSeriesTopRatedList;
+  List<TvSeries> get tvSeriesTopRatedList => throw _privateConstructorUsedError;
   @override
-  List<TvSeries> get tvSeriesList;
+  List<TvSeries> get tvSeriesList => throw _privateConstructorUsedError;
   @override
-  TvSeriesDetail? get tvSeriesDetail;
+  TvSeriesDetail? get tvSeriesDetail => throw _privateConstructorUsedError;
   @override
-  List<TvSeries> get tvSeriesRecommendationList;
+  List<TvSeries> get tvSeriesRecommendationList =>
+      throw _privateConstructorUsedError;
   @override
-  RequestState get tvSeriesStatus;
+  RequestState get tvSeriesStatus => throw _privateConstructorUsedError;
   @override
-  RequestState get tvSeriesDetailStatus;
+  RequestState get tvSeriesDetailStatus => throw _privateConstructorUsedError;
   @override
-  RequestState get tvSeriesSearchStatus;
+  RequestState get tvSeriesSearchStatus => throw _privateConstructorUsedError;
   @override
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @override
-  bool get isAddedToWatchlist;
+  bool get isAddedToWatchlist => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TvSeriesStateCopyWith<_TvSeriesState> get copyWith =>

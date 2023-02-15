@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'movie_bloc.dart';
@@ -11,67 +12,7 @@ part of 'movie_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$MovieEventTearOff {
-  const _$MovieEventTearOff();
-
-  MovieStarted movieStarted() {
-    return const MovieStarted();
-  }
-
-  MovieNowPlayingFetch movieNowPlayingFetch() {
-    return const MovieNowPlayingFetch();
-  }
-
-  MoviePopularFetch moviePopularFetch() {
-    return const MoviePopularFetch();
-  }
-
-  MovieTopRatedFetch movieTopRatedFetch() {
-    return const MovieTopRatedFetch();
-  }
-
-  MovieDetailFetch movieDetailFetch({required int id}) {
-    return MovieDetailFetch(
-      id: id,
-    );
-  }
-
-  MovieAddWatchlistPressed movieAddWatchlistPressed(
-      {required MovieDetail movieDetail}) {
-    return MovieAddWatchlistPressed(
-      movieDetail: movieDetail,
-    );
-  }
-
-  MovieRemoveFromWatchlistPressed movieRemoveFromWatchlistPressed(
-      {required MovieDetail movieDetail}) {
-    return MovieRemoveFromWatchlistPressed(
-      movieDetail: movieDetail,
-    );
-  }
-
-  MovieWatchlistStatusLoad movieWatchlistStatusLoad({required int id}) {
-    return MovieWatchlistStatusLoad(
-      id: id,
-    );
-  }
-
-  MovieSearchFetch movieSearchFetch({required String query}) {
-    return MovieSearchFetch(
-      query: query,
-    );
-  }
-
-  MovieWatchlistFetch movieWatchlistFetch() {
-    return const MovieWatchlistFetch();
-  }
-}
-
-/// @nodoc
-const $MovieEvent = _$MovieEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$MovieEvent {
@@ -1000,9 +941,9 @@ class _$MovieDetailFetch implements MovieDetailFetch {
 }
 
 abstract class MovieDetailFetch implements MovieEvent {
-  const factory MovieDetailFetch({required int id}) = _$MovieDetailFetch;
+  const factory MovieDetailFetch({required final int id}) = _$MovieDetailFetch;
 
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MovieDetailFetchCopyWith<MovieDetailFetch> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1191,10 +1132,10 @@ class _$MovieAddWatchlistPressed implements MovieAddWatchlistPressed {
 }
 
 abstract class MovieAddWatchlistPressed implements MovieEvent {
-  const factory MovieAddWatchlistPressed({required MovieDetail movieDetail}) =
-      _$MovieAddWatchlistPressed;
+  const factory MovieAddWatchlistPressed(
+      {required final MovieDetail movieDetail}) = _$MovieAddWatchlistPressed;
 
-  MovieDetail get movieDetail;
+  MovieDetail get movieDetail => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MovieAddWatchlistPressedCopyWith<MovieAddWatchlistPressed> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1387,9 +1328,10 @@ class _$MovieRemoveFromWatchlistPressed
 
 abstract class MovieRemoveFromWatchlistPressed implements MovieEvent {
   const factory MovieRemoveFromWatchlistPressed(
-      {required MovieDetail movieDetail}) = _$MovieRemoveFromWatchlistPressed;
+          {required final MovieDetail movieDetail}) =
+      _$MovieRemoveFromWatchlistPressed;
 
-  MovieDetail get movieDetail;
+  MovieDetail get movieDetail => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MovieRemoveFromWatchlistPressedCopyWith<MovieRemoveFromWatchlistPressed>
       get copyWith => throw _privateConstructorUsedError;
@@ -1577,10 +1519,10 @@ class _$MovieWatchlistStatusLoad implements MovieWatchlistStatusLoad {
 }
 
 abstract class MovieWatchlistStatusLoad implements MovieEvent {
-  const factory MovieWatchlistStatusLoad({required int id}) =
+  const factory MovieWatchlistStatusLoad({required final int id}) =
       _$MovieWatchlistStatusLoad;
 
-  int get id;
+  int get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MovieWatchlistStatusLoadCopyWith<MovieWatchlistStatusLoad> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1766,9 +1708,10 @@ class _$MovieSearchFetch implements MovieSearchFetch {
 }
 
 abstract class MovieSearchFetch implements MovieEvent {
-  const factory MovieSearchFetch({required String query}) = _$MovieSearchFetch;
+  const factory MovieSearchFetch({required final String query}) =
+      _$MovieSearchFetch;
 
-  String get query;
+  String get query => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MovieSearchFetchCopyWith<MovieSearchFetch> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1932,41 +1875,6 @@ class _$MovieWatchlistFetch implements MovieWatchlistFetch {
 abstract class MovieWatchlistFetch implements MovieEvent {
   const factory MovieWatchlistFetch() = _$MovieWatchlistFetch;
 }
-
-/// @nodoc
-class _$MovieStateTearOff {
-  const _$MovieStateTearOff();
-
-  _MovieState call(
-      {List<Movie> movieNowPlayingList = const [],
-      List<Movie> moviePopularList = const [],
-      List<Movie> movieTopRatedList = const [],
-      List<Movie> movieList = const [],
-      MovieDetail? movieDetail,
-      List<Movie> movieRecommendationList = const [],
-      RequestState movieStatus = RequestState.Empty,
-      RequestState movieDetailStatus = RequestState.Empty,
-      RequestState movieSearchStatus = RequestState.Empty,
-      String message = '',
-      bool isAddedToWatchlist = false}) {
-    return _MovieState(
-      movieNowPlayingList: movieNowPlayingList,
-      moviePopularList: moviePopularList,
-      movieTopRatedList: movieTopRatedList,
-      movieList: movieList,
-      movieDetail: movieDetail,
-      movieRecommendationList: movieRecommendationList,
-      movieStatus: movieStatus,
-      movieDetailStatus: movieDetailStatus,
-      movieSearchStatus: movieSearchStatus,
-      message: message,
-      isAddedToWatchlist: isAddedToWatchlist,
-    );
-  }
-}
-
-/// @nodoc
-const $MovieState = _$MovieStateTearOff();
 
 /// @nodoc
 mixin _$MovieState {
@@ -2174,49 +2082,79 @@ class __$MovieStateCopyWithImpl<$Res> extends _$MovieStateCopyWithImpl<$Res>
 
 class _$_MovieState implements _MovieState {
   const _$_MovieState(
-      {this.movieNowPlayingList = const [],
-      this.moviePopularList = const [],
-      this.movieTopRatedList = const [],
-      this.movieList = const [],
+      {final List<Movie> movieNowPlayingList = const [],
+      final List<Movie> moviePopularList = const [],
+      final List<Movie> movieTopRatedList = const [],
+      final List<Movie> movieList = const [],
       this.movieDetail,
-      this.movieRecommendationList = const [],
+      final List<Movie> movieRecommendationList = const [],
       this.movieStatus = RequestState.Empty,
       this.movieDetailStatus = RequestState.Empty,
       this.movieSearchStatus = RequestState.Empty,
       this.message = '',
-      this.isAddedToWatchlist = false});
+      this.isAddedToWatchlist = false})
+      : _movieNowPlayingList = movieNowPlayingList,
+        _moviePopularList = moviePopularList,
+        _movieTopRatedList = movieTopRatedList,
+        _movieList = movieList,
+        _movieRecommendationList = movieRecommendationList;
 
-  @JsonKey()
+  final List<Movie> _movieNowPlayingList;
   @override
-  final List<Movie> movieNowPlayingList;
   @JsonKey()
+  List<Movie> get movieNowPlayingList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_movieNowPlayingList);
+  }
+
+  final List<Movie> _moviePopularList;
   @override
-  final List<Movie> moviePopularList;
   @JsonKey()
+  List<Movie> get moviePopularList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_moviePopularList);
+  }
+
+  final List<Movie> _movieTopRatedList;
   @override
-  final List<Movie> movieTopRatedList;
   @JsonKey()
+  List<Movie> get movieTopRatedList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_movieTopRatedList);
+  }
+
+  final List<Movie> _movieList;
   @override
-  final List<Movie> movieList;
+  @JsonKey()
+  List<Movie> get movieList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_movieList);
+  }
+
   @override
   final MovieDetail? movieDetail;
-  @JsonKey()
+  final List<Movie> _movieRecommendationList;
   @override
-  final List<Movie> movieRecommendationList;
   @JsonKey()
+  List<Movie> get movieRecommendationList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_movieRecommendationList);
+  }
+
   @override
+  @JsonKey()
   final RequestState movieStatus;
-  @JsonKey()
   @override
+  @JsonKey()
   final RequestState movieDetailStatus;
-  @JsonKey()
   @override
+  @JsonKey()
   final RequestState movieSearchStatus;
-  @JsonKey()
   @override
+  @JsonKey()
   final String message;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool isAddedToWatchlist;
 
   @override
@@ -2274,40 +2212,40 @@ class _$_MovieState implements _MovieState {
 
 abstract class _MovieState implements MovieState {
   const factory _MovieState(
-      {List<Movie> movieNowPlayingList,
-      List<Movie> moviePopularList,
-      List<Movie> movieTopRatedList,
-      List<Movie> movieList,
-      MovieDetail? movieDetail,
-      List<Movie> movieRecommendationList,
-      RequestState movieStatus,
-      RequestState movieDetailStatus,
-      RequestState movieSearchStatus,
-      String message,
-      bool isAddedToWatchlist}) = _$_MovieState;
+      {final List<Movie> movieNowPlayingList,
+      final List<Movie> moviePopularList,
+      final List<Movie> movieTopRatedList,
+      final List<Movie> movieList,
+      final MovieDetail? movieDetail,
+      final List<Movie> movieRecommendationList,
+      final RequestState movieStatus,
+      final RequestState movieDetailStatus,
+      final RequestState movieSearchStatus,
+      final String message,
+      final bool isAddedToWatchlist}) = _$_MovieState;
 
   @override
-  List<Movie> get movieNowPlayingList;
+  List<Movie> get movieNowPlayingList => throw _privateConstructorUsedError;
   @override
-  List<Movie> get moviePopularList;
+  List<Movie> get moviePopularList => throw _privateConstructorUsedError;
   @override
-  List<Movie> get movieTopRatedList;
+  List<Movie> get movieTopRatedList => throw _privateConstructorUsedError;
   @override
-  List<Movie> get movieList;
+  List<Movie> get movieList => throw _privateConstructorUsedError;
   @override
-  MovieDetail? get movieDetail;
+  MovieDetail? get movieDetail => throw _privateConstructorUsedError;
   @override
-  List<Movie> get movieRecommendationList;
+  List<Movie> get movieRecommendationList => throw _privateConstructorUsedError;
   @override
-  RequestState get movieStatus;
+  RequestState get movieStatus => throw _privateConstructorUsedError;
   @override
-  RequestState get movieDetailStatus;
+  RequestState get movieDetailStatus => throw _privateConstructorUsedError;
   @override
-  RequestState get movieSearchStatus;
+  RequestState get movieSearchStatus => throw _privateConstructorUsedError;
   @override
-  String get message;
+  String get message => throw _privateConstructorUsedError;
   @override
-  bool get isAddedToWatchlist;
+  bool get isAddedToWatchlist => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$MovieStateCopyWith<_MovieState> get copyWith =>
