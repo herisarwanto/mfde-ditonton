@@ -1,6 +1,28 @@
-# mfde-ditonton
+# Movie App
+
+A modern movie application built with Flutter, Bloc, and Firebase, implementing Clean Architecture design. This app leverages data from the extensive TMDB database API (https://www.themoviedb.org/) to provide users with a diverse selection of movies and their details.
+
+## About
+
+The Movie App is a sophisticated platform designed to provide users with an immersive experience in exploring movies. Developed using Flutter and Bloc for robust and reactive UI components, and powered by Firebase for seamless backend functionalities, including analytics and crash reporting using Firebase Analytics and Crashlytics.
+
+## Key Features
+
+- **TMDB Database Integration:** Utilizes TMDB API to access an extensive collection of movies and their details.
+- **Clean Architecture:** Implements a structured and scalable Clean Architecture design pattern for maintainability and testability.
+- **Flutter & Bloc:** Leverages Flutter for the UI and Bloc for managing state and data flow efficiently.
+- **Firebase Analytics & Crashlytics:** Utilizes Firebase for analytics and crash reporting, ensuring a smooth user experience.
+
+## Technologies Used
+
+- Flutter
+- Bloc for State Management
+- Firebase 
+- Clean Architecture for Design Pattern
 
 <!--
+# mfde-ditonton
+
 Repository ini merupakan project submission kelas Flutter Expert Dicoding Indonesia.
 
 ---
